@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Invoice Extractor</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #117299b5;            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .upload-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h2 {
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #636e72;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .file-input-container {
+            border: 2px dashed #a29bfe;
+            padding: 20px;
+            border-radius: 15px;
+            background: #f9f9ff;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .file-input-container:hover {
+            border-color: #6c5ce7;
+            background: #f1f0ff;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .btn-submit {
+            margin-top:30px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background: #5849be;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-card">
+    <span class="upload-icon">📄</span>
+    <h2>Invoice Extractor</h2>
+    <p>Upload Invoice pdfs to view the extraction.</p>
+
+    <form action="http://127.0.0.1:8000/extract" method="post" enctype="multipart/form-data" target="_blank">
+        <label class="file-input-container" for="file-upload">
+            <span id="file-name">Click to select file</span>
+            <input id="file-upload" type="file" name="file" onchange="updateFileName()">
+        </label>
+        
+        <button type="submit" class="btn-submit">Extract Invoice</button>
+    </form>
+</div>
+
+<script>
+    function updateFileName() {
+        const input = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        if (input.files.length > 0) {
+            fileNameDisplay.innerText = input.files[0].name;
+            fileNameDisplay.style.color = "#5145ad";
+            fileNameDisplay.style.fontWeight = "bold";
+        }
+    }
+</script>
+
+</body>
+</html>

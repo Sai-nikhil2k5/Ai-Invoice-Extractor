@@ -1,0 +1,27 @@
+Since the Approach 1,extracting the invoice by extracting the reaw text from images using PaddleOCR, makes the accuracy low due to many constrainsts.
+
+So I decided to build a Universal Invoce Extractor with Atmost accuracy 
+
+1. i built an simple AI model using the "GOOGLE Gemini" API.2
+
+2.deployed it on the fast API server.
+
+3.Brought the outut to another window.
+
+Challenges and encountering :
+
+1.Creation of Google Gemini API from GOOGEL_AI_STUDIO and setting up its billing.
+
+2.Errors due to Gemini model variations.
+
+3.after deploying on fastAPI i wanted to show on a new HTML page but when  i created a file i need to run the server first and then after the setup of the server i needed to manually open the "test.html" manually which i didn't liked.
+
+so,i imported and used Webbrowser library which opens the default assigned html page when the setup of server is initiated.
+
+
+
+
+
+Finally the project of extracting the invoices gets one of the good approaches so far.
+
+Iam Looking ahead for more possible approaches to accomplish the same.
